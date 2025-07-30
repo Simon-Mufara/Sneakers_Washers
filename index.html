@@ -303,22 +303,19 @@
         };
 
         // --- Paystack Payment Logic ---
-        // IMPORTANT: Replace with your own Paystack Public Key
-        const PAYSTACK_PUBLIC_KEY = pk_test_5716f779ba66133c6412a4b842a1068b6c689120; // Replace with your key
+        const PAYSTACK_PUBLIC_KEY = "pk_test_5716f779ba66133c6412a4b842a1068b6c689120";
 
         function payWithPaystack(amount, planName) {
-            if (PAYSTACK_PUBLIC_KEY === "pk_test_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx") {
-                 showInfoModal(
-                    'error',
-                    'Configuration Needed',
-                    'The site owner needs to add their Paystack API key to enable payments.'
-                );
+            // A simple email prompt. For a real app, you'd have a proper form.
+            const email = prompt("Please enter your email address to proceed with payment:", "student@email.com");
+            if (!email) { // If user cancels the prompt
+                alert("Email is required to proceed with payment.");
                 return;
             }
 
             const handler = PaystackPop.setup({
                 key: PAYSTACK_PUBLIC_KEY,
-                email: 'customer@example.com', // You can add a form to get the user's email
+                email: email,
                 amount: amount * 100, // Amount in kobo/cents
                 currency: 'ZAR',
                 ref: 'SW' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference.
