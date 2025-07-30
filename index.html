@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneakers Washers - We collect, clean & deliver!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('http://googleusercontent.com/file_content/1');
+            background-size: cover;
+            background-position: center;
+        }
+        .step-card::before {
+            content: attr(data-step);
+            position: absolute;
+            top: -1.5rem;
+            left: -1.5rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 9999px;
+            background-color: #4f46e5;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.25rem;
+            border: 4px solid white;
+            z-index: 10;
+        }
+        .tracking-status-bar {
+            position: relative;
+            width: 100%;
+            height: 8px;
+            background-color: #e5e7eb;
+            border-radius: 9999px;
+            margin: 2rem 0;
+        }
+        .tracking-progress {
+            position: absolute;
+            height: 100%;
+            background-color: #4f46e5;
+            border-radius: 9999px;
+            transition: width 0.5s ease-in-out;
+        }
+        .tracking-dot {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: #e5e7eb;
+            border: 3px solid #e5e7eb;
+        }
+        .tracking-dot.active {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+        }
+        .tracking-dot.completed {
+            background-color: #4f46e5;
+            border-color: #4f46e5;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-indigo-600">
+                <i class="fas fa-shoe-prints mr-2"></i>Sneakers Washers
+            </a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="#how-it-works" class="text-gray-600 hover:text-indigo-600 transition">How It Works</a>
+                <a href="#pricing" class="text-gray-600 hover:text-indigo-600 transition">Pricing</a>
+                <a href="#track-order" class="text-gray-600 hover:text-indigo-600 transition">Track Order</a>
+                <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
+            </div>
+            <a href="#pricing" class="hidden md:block bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 transition shadow-lg">Book Now</a>
+            <button id="mobile-menu-button" class="md:hidden text-2xl">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
+            <a href="#how-it-works" class="block py-2 text-gray-600 hover:text-indigo-600">How It Works</a>
+            <a href="#pricing" class="block py-2 text-gray-600 hover:text-indigo-600">Pricing</a>
+            <a href="#track-order" class="block py-2 text-gray-600 hover:text-indigo-600">Track Order</a>
+            <a href="#contact" class="block py-2 text-gray-600 hover:text-indigo-600">Contact</a>
+            <a href="#pricing" class="block mt-4 bg-indigo-600 text-white text-center px-5 py-2 rounded-full hover:bg-indigo-700 transition shadow-lg">Book Now</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-bg text-white h-[60vh] md:h-[80vh] flex items-center justify-center text-center">
+            <div class="container mx-auto px-6">
+                <h1 class="text-4xl md:text-6xl font-black mb-4 leading-tight">Dirty Kicks? We've Got You!</h1>
+                <p class="text-lg md:text-2xl mb-8 font-light">Made by students, for students. We collect, clean & deliver.</p>
+                <a href="#pricing" class="bg-white text-indigo-600 font-bold px-8 py-4 rounded-full text-lg hover:bg-gray-200 transition transform hover:scale-105 shadow-xl">
+                    Get a Fresh Start
+                </a>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how-it-works" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
+                <p class="text-gray-600 mb-12 max-w-2xl mx-auto">A seamless process to get your sneakers sparkling clean without any hassle.</p>
+                <div class="grid md:grid-cols-3 gap-16 md:gap-8 relative">
+                    <!-- Step 1 -->
+                    <div class="relative bg-gray-100 p-8 rounded-xl shadow-lg step-card" data-step="1">
+                        <div class="text-5xl text-indigo-500 mb-4"><i class="fas fa-box"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Book & Schedule</h3>
+                        <p class="text-gray-600">Choose your service and pick a convenient collection time. We'll come to you!</p>
+                    </div>
+                    <!-- Step 2 -->
+                    <div class="relative bg-gray-100 p-8 rounded-xl shadow-lg step-card" data-step="2">
+                        <div class="text-5xl text-indigo-500 mb-4"><i class="fas fa-soap"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Expert Cleaning</h3>
+                        <p class="text-gray-600">Our team uses premium products to give your sneakers a deep, restorative clean.</p>
+                    </div>
+                    <!-- Step 3 -->
+                    <div class="relative bg-gray-100 p-8 rounded-xl shadow-lg step-card" data-step="3">
+                        <div class="text-5xl text-indigo-500 mb-4"><i class="fas fa-truck-fast"></i></div>
+                        <h3 class="text-xl font-bold mb-2">Speedy Delivery</h3>
+                        <p class="text-gray-600">We'll deliver your fresh kicks back to you, usually within 1-2 days.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section id="pricing" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, Fair Pricing</h2>
+                <p class="text-gray-600 mb-12 max-w-2xl mx-auto">Student-friendly prices for a premium service. Choose the right wash for your kicks.</p>
+                <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                    <!-- Pricing Card: Normal -->
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 flex flex-col transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-2">Normal Wash</h3>
+                        <p class="text-5xl font-black text-indigo-600 mb-4">R80</p>
+                        <p class="text-gray-500 mb-6">Ideal for canvas, nylon, and standard materials.</p>
+                        <ul class="text-left space-y-2 mb-8 flex-grow">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Deep Clean</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Lace Cleaning</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Deodorizing</li>
+                        </ul>
+                        <button onclick="openPaymentModal('Normal Wash', 80)" class="mt-auto bg-indigo-600 text-white w-full py-3 rounded-full font-bold hover:bg-indigo-700 transition">Select Plan</button>
+                    </div>
+                    <!-- Pricing Card: Suede -->
+                    <div class="bg-white p-8 rounded-2xl shadow-2xl border-4 border-indigo-600 flex flex-col transform hover:scale-105 transition-transform duration-300 relative">
+                        <span class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-bold">Most Popular</span>
+                        <h3 class="text-2xl font-bold mb-2">Suede Wash</h3>
+                        <p class="text-5xl font-black text-indigo-600 mb-4">R100</p>
+                        <p class="text-gray-500 mb-6">Specialized care for delicate suede and nubuck.</p>
+                        <ul class="text-left space-y-2 mb-8 flex-grow">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Gentle Brush Clean</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Stain Protection</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Lace Cleaning</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Deodorizing</li>
+                        </ul>
+                        <button onclick="openPaymentModal('Suede Wash', 100)" class="mt-auto bg-indigo-600 text-white w-full py-3 rounded-full font-bold hover:bg-indigo-700 transition">Select Plan</button>
+                    </div>
+                    <!-- Pricing Card: Leather -->
+                    <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 flex flex-col transform hover:scale-105 transition-transform duration-300">
+                        <h3 class="text-2xl font-bold mb-2">Leather Wash</h3>
+                        <p class="text-5xl font-black text-indigo-600 mb-4">R100</p>
+                        <p class="text-gray-500 mb-6">Premium treatment for all leather types.</p>
+                        <ul class="text-left space-y-2 mb-8 flex-grow">
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Leather Conditioning</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Polishing & Shine</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Lace Cleaning</li>
+                            <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-2"></i>Deodorizing</li>
+                        </ul>
+                        <button onclick="openPaymentModal('Leather Wash', 100)" class="mt-auto bg-indigo-600 text-white w-full py-3 rounded-full font-bold hover:bg-indigo-700 transition">Select Plan</button>
+                    </div>
+                </div>
+                 <p class="text-gray-600 mt-8">Standard delivery takes 1-2 days after collection. Same-day return is available for an additional R50.</p>
+            </div>
+        </section>
+
+        <!-- Track Order Section -->
+        <section id="track-order" class="py-20 bg-white">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Track Your Order</h2>
+                <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Enter your order ID to see the real-time status of your sneaker cleaning.</p>
+                <div class="max-w-md mx-auto">
+                    <div class="flex rounded-full bg-gray-100 p-2 shadow-inner">
+                        <input type="text" id="order-id-input" placeholder="Enter your Order ID (e.g., SW1234)" class="w-full bg-transparent p-3 rounded-full focus:outline-none">
+                        <button id="track-button" class="bg-indigo-600 text-white px-8 py-3 rounded-full font-bold hover:bg-indigo-700 transition">Track</button>
+                    </div>
+                </div>
+                <div id="tracking-result" class="mt-12 max-w-2xl mx-auto hidden">
+                    <h3 id="tracking-status-text" class="text-2xl font-bold mb-4"></h3>
+                    <div class="tracking-status-bar">
+                        <div id="tracking-progress-bar" class="tracking-progress"></div>
+                        <div id="dot-1" class="tracking-dot" style="left: 0%;"></div>
+                        <div id="dot-2" class="tracking-dot" style="left: 33%;"></div>
+                        <div id="dot-3" class="tracking-dot" style="left: 66%;"></div>
+                        <div id="dot-4" class="tracking-dot" style="left: 100%;"></div>
+                    </div>
+                    <div class="flex justify-between text-sm text-gray-500">
+                        <span>Order Placed</span>
+                        <span>Collected</span>
+                        <span>Cleaning</span>
+                        <span>Delivered</span>
+                    </div>
+                    <p id="tracking-message" class="mt-6 text-lg"></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-gray-800 text-white pt-16 pb-8">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+            <p class="text-gray-400 mb-8">Ready to give your sneakers a new life? Contact us!</p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8 mb-10">
+                <div class="flex items-center">
+                    <i class="fas fa-map-marker-alt text-indigo-400 text-2xl mr-3"></i>
+                    <span>Based in Harold Cressey, Cape Town</span>
+                </div>
+                <div class="flex items-center">
+                    <i class="fas fa-phone text-indigo-400 text-2xl mr-3"></i>
+                    <a href="tel:0620552382" class="hover:text-indigo-400 transition">062 055 2382</a>
+                </div>
+                 <div class="flex items-center">
+                    <i class="fab fa-whatsapp text-indigo-400 text-2xl mr-3"></i>
+                    <a href="https://wa.me/27620552382" target="_blank" class="hover:text-indigo-400 transition">WhatsApp Us</a>
+                </div>
+            </div>
+            <div class="mb-8">
+                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/27620552382" alt="WhatsApp QR Code" class="mx-auto rounded-lg">
+                 <p class="text-gray-400 mt-2 text-sm">Scan to chat on WhatsApp</p>
+            </div>
+            <div class="border-t border-gray-700 pt-8 mt-8 text-sm text-gray-500">
+                <p>&copy; <span id="year"></span> Sneakers Washers. All Rights Reserved. Made with <i class="fas fa-heart text-red-500"></i> for students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Payment Modal -->
+    <div id="payment-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 max-w-md w-full mx-4 transform transition-all duration-300 scale-95">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-2xl font-bold">Complete Your Order</h2>
+                <button onclick="closePaymentModal()" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+            </div>
+            <div id="modal-content">
+                <p class="mb-4">You've selected: <strong id="modal-plan-name"></strong></p>
+                <p class="text-3xl font-bold mb-6">Total: R<span id="modal-plan-price"></span></p>
+                <p class="text-sm text-gray-600 mb-4">This is a demonstration of the payment process. In a real application, you would be redirected to a secure payment gateway.</p>
+                
+                <div class="bg-indigo-50 p-4 rounded-lg text-center">
+                    <h3 class="font-bold text-indigo-800">Simulated Payment</h3>
+                    <p class="text-indigo-700 text-sm">Click "Pay Now" to simulate a successful payment and receive your Order ID.</p>
+                </div>
+
+            </div>
+            <div id="payment-success" class="hidden text-center">
+                 <div class="text-6xl text-green-500 mb-4"><i class="fas fa-check-circle"></i></div>
+                 <h2 class="text-2xl font-bold mb-2">Payment Successful!</h2>
+                 <p class="text-gray-600 mb-4">Thank you for your order. Please save your Order ID.</p>
+                 <p class="text-lg font-bold">Your Order ID is:</p>
+                 <div class="bg-gray-100 text-2xl font-mono p-3 my-2 rounded-lg border-2 border-dashed">
+                    <span id="order-id-display"></span>
+                 </div>
+                 <p class="text-sm text-gray-500">You can use this ID to track your order status.</p>
+            </div>
+            <div class="mt-6">
+                <button id="pay-now-button" onclick="processPayment()" class="w-full bg-green-500 text-white py-3 rounded-lg font-bold hover:bg-green-600 transition">Pay Now</button>
+                <button id="close-modal-button" onclick="closePaymentModal()" class="w-full bg-gray-200 text-gray-800 py-3 rounded-lg font-bold hover:bg-gray-300 transition mt-2 hidden">Close</button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+                // Close mobile menu on link click
+                if (!mobileMenu.classList.contains('hidden')) {
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // --- Order Tracking Logic ---
+        const trackButton = document.getElementById('track-button');
+        const orderIdInput = document.getElementById('order-id-input');
+        const trackingResult = document.getElementById('tracking-result');
+        const trackingStatusText = document.getElementById('tracking-status-text');
+        const trackingProgressBar = document.getElementById('tracking-progress-bar');
+        const trackingMessage = document.getElementById('tracking-message');
+        const dots = [
+            document.getElementById('dot-1'),
+            document.getElementById('dot-2'),
+            document.getElementById('dot-3'),
+            document.getElementById('dot-4'),
+        ];
+
+        // Dummy order data to simulate a backend
+        const orders = {
+            "SW1234": { status: "Order Placed", progress: 0, message: "We've received your order and will schedule collection soon!" },
+            "SW5678": { status: "Collected", progress: 33, message: "Our driver has collected your sneakers. They're on their way to our cleaning facility!" },
+            "SW9012": { status: "Cleaning", progress: 66, message: "Your kicks are getting the royal treatment! Our experts are hard at work." },
+            "SW3456": { status: "Delivered", progress: 100, message: "All clean! Your sneakers have been delivered. Enjoy your fresh kicks!" }
+        };
+
+        trackButton.addEventListener('click', () => {
+            const orderId = orderIdInput.value.trim().toUpperCase();
+            const order = orders[orderId];
+
+            if (order) {
+                trackingStatusText.textContent = `Status: ${order.status}`;
+                trackingProgressBar.style.width = `${order.progress}%`;
+                trackingMessage.textContent = order.message;
+                
+                // Update dots
+                const activeIndex = Math.floor(order.progress / 33);
+                dots.forEach((dot, index) => {
+                    if (index < activeIndex) {
+                        dot.classList.add('completed');
+                        dot.classList.remove('active');
+                    } else if (index === activeIndex && order.progress < 100) {
+                        dot.classList.add('active');
+                        dot.classList.remove('completed');
+                    } else {
+                        dot.classList.remove('active', 'completed');
+                    }
+                });
+                 if (order.progress === 100) {
+                    dots[3].classList.add('completed');
+                }
+
+
+                trackingResult.classList.remove('hidden');
+            } else {
+                trackingStatusText.textContent = "Order Not Found";
+                trackingMessage.textContent = "Please check your Order ID and try again. It should look like 'SW1234'.";
+                trackingProgressBar.style.width = '0%';
+                dots.forEach(dot => dot.classList.remove('active', 'completed'));
+                trackingResult.classList.remove('hidden');
+            }
+        });
+
+        // --- Payment Modal Logic ---
+        const paymentModal = document.getElementById('payment-modal');
+        const modalContent = document.getElementById('modal-content');
+        const paymentSuccess = document.getElementById('payment-success');
+        const payNowButton = document.getElementById('pay-now-button');
+        const closeModalButton = document.getElementById('close-modal-button');
+        
+        const modalPlanName = document.getElementById('modal-plan-name');
+        const modalPlanPrice = document.getElementById('modal-plan-price');
+        const orderIdDisplay = document.getElementById('order-id-display');
+
+        function openPaymentModal(planName, planPrice) {
+            // Reset modal state
+            modalContent.classList.remove('hidden');
+            paymentSuccess.classList.add('hidden');
+            payNowButton.classList.remove('hidden');
+            closeModalButton.classList.add('hidden');
+            
+            modalPlanName.textContent = planName;
+            modalPlanPrice.textContent = planPrice;
+            paymentModal.classList.remove('hidden');
+            setTimeout(() => {
+                 paymentModal.querySelector('div').classList.remove('scale-95');
+            }, 10);
+        }
+
+        function closePaymentModal() {
+            paymentModal.querySelector('div').classList.add('scale-95');
+            setTimeout(() => {
+                paymentModal.classList.add('hidden');
+            }, 300);
+        }
+
+        function processPayment() {
+            // Generate a random order ID for simulation
+            const newOrderId = `SW${Math.floor(1000 + Math.random() * 9000)}`;
+            orderIdDisplay.textContent = newOrderId;
+
+            // Add the new order to our dummy data so it can be tracked
+            orders[newOrderId] = { status: "Order Placed", progress: 0, message: "We've received your order and will schedule collection soon!" };
+
+            // Show success message
+            modalContent.classList.add('hidden');
+            paymentSuccess.classList.remove('hidden');
+            payNowButton.classList.add('hidden');
+            closeModalButton.classList.remove('hidden');
+        }
+
+        // Close modal if clicking on the background
+        paymentModal.addEventListener('click', function(event) {
+            if (event.target === paymentModal) {
+                closePaymentModal();
+            }
+        });
+
+    </script>
+</body>
+</html>
