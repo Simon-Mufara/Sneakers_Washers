@@ -61,13 +61,15 @@
             background-color: #e5e7eb;
             border: 3px solid #e5e7eb;
         }
-        .tracking-dot.active {
+        .tracking-dot.active, .tracking-dot.completed {
             background-color: #4f46e5;
             border-color: #4f46e5;
         }
-        .tracking-dot.completed {
-            background-color: #4f46e5;
-            border-color: #4f46e5;
+        /* FAQ Accordion styles */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
         }
     </style>
 </head>
@@ -81,9 +83,10 @@
             </a>
             <div class="hidden md:flex space-x-6 items-center">
                 <a href="#how-it-works" class="text-gray-600 hover:text-indigo-600 transition">How It Works</a>
+                <a href="#gallery" class="text-gray-600 hover:text-indigo-600 transition">Gallery</a>
                 <a href="#pricing" class="text-gray-600 hover:text-indigo-600 transition">Pricing</a>
+                <a href="#faq" class="text-gray-600 hover:text-indigo-600 transition">FAQ</a>
                 <a href="#track-order" class="text-gray-600 hover:text-indigo-600 transition">Track Order</a>
-                <a href="#contact" class="text-gray-600 hover:text-indigo-600 transition">Contact</a>
             </div>
             <a href="#pricing" class="hidden md:block bg-indigo-600 text-white px-5 py-2 rounded-full hover:bg-indigo-700 transition shadow-lg">Book Now</a>
             <button id="mobile-menu-button" class="md:hidden text-2xl">
@@ -93,7 +96,9 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white px-6 pb-4">
             <a href="#how-it-works" class="block py-2 text-gray-600 hover:text-indigo-600">How It Works</a>
+            <a href="#gallery" class="block py-2 text-gray-600 hover:text-indigo-600">Gallery</a>
             <a href="#pricing" class="block py-2 text-gray-600 hover:text-indigo-600">Pricing</a>
+            <a href="#faq" class="block py-2 text-gray-600 hover:text-indigo-600">FAQ</a>
             <a href="#track-order" class="block py-2 text-gray-600 hover:text-indigo-600">Track Order</a>
             <a href="#contact" class="block py-2 text-gray-600 hover:text-indigo-600">Contact</a>
             <a href="#pricing" class="block mt-4 bg-indigo-600 text-white text-center px-5 py-2 rounded-full hover:bg-indigo-700 transition shadow-lg">Book Now</a>
@@ -118,19 +123,16 @@
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
                 <p class="text-gray-600 mb-12 max-w-2xl mx-auto">A seamless process to get your sneakers sparkling clean without any hassle.</p>
                 <div class="grid md:grid-cols-3 gap-16 md:gap-8 relative">
-                    <!-- Step 1 -->
                     <div class="relative bg-gray-100 p-8 rounded-xl shadow-lg step-card" data-step="1">
                         <div class="text-5xl text-indigo-500 mb-4"><i class="fas fa-box"></i></div>
                         <h3 class="text-xl font-bold mb-2">Book & Pay</h3>
                         <p class="text-gray-600">Choose your service, pay securely online, and schedule a collection time.</p>
                     </div>
-                    <!-- Step 2 -->
                     <div class="relative bg-gray-100 p-8 rounded-xl shadow-lg step-card" data-step="2">
                         <div class="text-5xl text-indigo-500 mb-4"><i class="fas fa-soap"></i></div>
                         <h3 class="text-xl font-bold mb-2">Expert Cleaning</h3>
                         <p class="text-gray-600">Our team uses premium products to give your sneakers a deep, restorative clean.</p>
                     </div>
-                    <!-- Step 3 -->
                     <div class="relative bg-gray-100 p-8 rounded-xl shadow-lg step-card" data-step="3">
                         <div class="text-5xl text-indigo-500 mb-4"><i class="fas fa-truck-fast"></i></div>
                         <h3 class="text-xl font-bold mb-2">Speedy Delivery</h3>
@@ -140,13 +142,39 @@
             </div>
         </section>
 
+        <!-- Before & After Gallery Section -->
+        <section id="gallery" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">The Results Speak for Themselves</h2>
+                <p class="text-gray-600 mb-12 max-w-2xl mx-auto">Seeing is believing. Check out the transformations we've delivered.</p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Gallery Item 1: Before & After -->
+                    <div class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="http://googleusercontent.com/file_content/2" alt="Dirty pink puma sneakers before cleaning" class="w-full h-48 object-cover">
+                        <img src="http://googleusercontent.com/file_content/4" alt="Clean pink puma sneakers after cleaning" class="w-full h-48 object-cover">
+                        <p class="p-4 font-semibold bg-gray-100">Pink Puma Suede Restoration</p>
+                    </div>
+                    <!-- Gallery Item 2: Single Image -->
+                    <div class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="http://googleusercontent.com/file_content/5" alt="Two pairs of clean Nike Air Force 1 sneakers" class="w-full h-96 object-cover">
+                        <p class="p-4 font-semibold bg-gray-100">Nike Air Force 1 Deep Clean</p>
+                    </div>
+                    <!-- Gallery Item 3: Single Image -->
+                    <div class="bg-white rounded-lg shadow-xl overflow-hidden transform hover:scale-105 transition-transform duration-300">
+                        <img src="http://googleusercontent.com/file_content/3" alt="Custom black cat sneaker after cleaning" class="w-full h-96 object-cover">
+                        <p class="p-4 font-semibold bg-gray-100">Custom Sneaker Care</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Pricing Section -->
-        <section id="pricing" class="py-20">
+        <section id="pricing" class="py-20 bg-white">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Simple, Fair Pricing</h2>
                 <p class="text-gray-600 mb-12 max-w-2xl mx-auto">Student-friendly prices for a premium service. Choose the right wash for your kicks.</p>
                 <div class="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                    <!-- Pricing Card: Normal -->
+                    <!-- Pricing Cards -->
                     <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 flex flex-col transform hover:scale-105 transition-transform duration-300">
                         <h3 class="text-2xl font-bold mb-2">Normal Wash</h3>
                         <p class="text-5xl font-black text-indigo-600 mb-4">R80</p>
@@ -158,7 +186,6 @@
                         </ul>
                         <button onclick="payWithPaystack(80, 'Normal Wash')" class="mt-auto bg-indigo-600 text-white w-full py-3 rounded-full font-bold hover:bg-indigo-700 transition">Pay & Book Now</button>
                     </div>
-                    <!-- Pricing Card: Suede -->
                     <div class="bg-white p-8 rounded-2xl shadow-2xl border-4 border-indigo-600 flex flex-col transform hover:scale-105 transition-transform duration-300 relative">
                         <span class="absolute top-0 -translate-y-1/2 left-1/2 -translate-x-1/2 bg-indigo-600 text-white px-4 py-1 rounded-full text-sm font-bold">Most Popular</span>
                         <h3 class="text-2xl font-bold mb-2">Suede Wash</h3>
@@ -172,7 +199,6 @@
                         </ul>
                         <button onclick="payWithPaystack(100, 'Suede Wash')" class="mt-auto bg-indigo-600 text-white w-full py-3 rounded-full font-bold hover:bg-indigo-700 transition">Pay & Book Now</button>
                     </div>
-                    <!-- Pricing Card: Leather -->
                     <div class="bg-white p-8 rounded-2xl shadow-xl border border-gray-200 flex flex-col transform hover:scale-105 transition-transform duration-300">
                         <h3 class="text-2xl font-bold mb-2">Leather Wash</h3>
                         <p class="text-5xl font-black text-indigo-600 mb-4">R100</p>
@@ -190,8 +216,91 @@
             </div>
         </section>
 
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What Our Customers Say</h2>
+                <p class="text-gray-600 mb-12 max-w-2xl mx-auto">We're proud to have happy customers. Here's what they think of our service.</p>
+                <div class="grid md:grid-cols-3 gap-8 text-left">
+                    <!-- Testimonial 1 -->
+                    <div class="bg-indigo-50 p-8 rounded-lg">
+                        <i class="fas fa-quote-left text-indigo-200 text-3xl mb-4"></i>
+                        <blockquote class="text-gray-700 mb-4">My Converse look brand new! The collection and delivery were so convenient, and the service was super friendly. 10/10 would recommend.</blockquote>
+                        <p class="font-bold text-indigo-800">Thabo M.</p>
+                        <p class="text-sm text-indigo-600">UCT Student</p>
+                    </div>
+                    <!-- Testimonial 2 -->
+                    <div class="bg-indigo-50 p-8 rounded-lg">
+                        <i class="fas fa-quote-left text-indigo-200 text-3xl mb-4"></i>
+                        <blockquote class="text-gray-700 mb-4">Honestly was a bit skeptical at first, but they did an amazing job on my leather sneakers. Super professional and worth every rand.</blockquote>
+                        <p class="font-bold text-indigo-800">Aisha P.</p>
+                        <p class="text-sm text-indigo-600">Stellenbosch Student</p>
+                    </div>
+                    <!-- Testimonial 3 -->
+                    <div class="bg-indigo-50 p-8 rounded-lg">
+                        <i class="fas fa-quote-left text-indigo-200 text-3xl mb-4"></i>
+                        <blockquote class="text-gray-700 mb-4">So much easier than trying to clean my suede shoes myself and messing them up. Fast, affordable, and they look perfect. I'll be a regular customer!</blockquote>
+                        <p class="font-bold text-indigo-800">Lerato K.</p>
+                        <p class="text-sm text-indigo-600">Varsity College Student</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Have questions? We've got answers. If you don't find what you're looking for, feel free to contact us.</p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <!-- FAQ Item 1 -->
+                    <div class="border-b">
+                        <button class="faq-question w-full text-left py-4 flex justify-between items-center focus:outline-none">
+                            <span class="text-lg font-semibold">What areas in Cape Town do you collect from?</span>
+                            <i class="fas fa-chevron-down transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer pb-4 text-gray-600">
+                            <p>We currently offer collection and delivery services in the Cape Town Southern Suburbs, including areas around UCT like Rondebosch, Mowbray, Claremont, and Newlands. If you're outside this zone, please contact us on WhatsApp to see if we can make a special arrangement!</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 2 -->
+                    <div class="border-b">
+                        <button class="faq-question w-full text-left py-4 flex justify-between items-center focus:outline-none">
+                            <span class="text-lg font-semibold">How do I schedule my collection after I've paid?</span>
+                            <i class="fas fa-chevron-down transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer pb-4 text-gray-600">
+                            <p>Once your payment is successful, you'll receive your Order ID. We will then contact you via WhatsApp or phone number using the details from your payment to arrange a convenient collection time and place that works for you.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 3 -->
+                    <div class="border-b">
+                        <button class="faq-question w-full text-left py-4 flex justify-between items-center focus:outline-none">
+                            <span class="text-lg font-semibold">Are your cleaning products safe for all shoes?</span>
+                            <i class="fas fa-chevron-down transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer pb-4 text-gray-600">
+                            <p>Absolutely. We use premium, eco-friendly cleaning solutions that are specifically designed for different materials like suede, leather, canvas, and more. We treat every pair of sneakers with the utmost care, ensuring they are cleaned safely and effectively.</p>
+                        </div>
+                    </div>
+                    <!-- FAQ Item 4 -->
+                    <div class="border-b">
+                        <button class="faq-question w-full text-left py-4 flex justify-between items-center focus:outline-none">
+                            <span class="text-lg font-semibold">What is the turnaround time?</span>
+                            <i class="fas fa-chevron-down transform transition-transform"></i>
+                        </button>
+                        <div class="faq-answer pb-4 text-gray-600">
+                            <p>Our standard turnaround time is 1-2 days after collection. If you're in a hurry, you can opt for our same-day service for an additional R50, where we collect in the morning and deliver by the evening.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Track Order Section -->
-        <section id="track-order" class="py-20 bg-white">
+        <section id="track-order" class="py-20">
             <div class="container mx-auto px-6 text-center">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4">Track Your Order</h2>
                 <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Enter your order ID to see the real-time status of your sneaker cleaning.</p>
@@ -241,9 +350,14 @@
                     <a href="https://wa.me/27620552382" target="_blank" class="hover:text-indigo-400 transition">WhatsApp Us</a>
                 </div>
             </div>
+            <!-- Social Media Links -->
             <div class="mb-8">
-                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://wa.me/27620552382" alt="WhatsApp QR Code" class="mx-auto rounded-lg">
-                 <p class="text-gray-400 mt-2 text-sm">Scan to chat on WhatsApp</p>
+                <p class="text-gray-400 mb-4">Follow us on social media!</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" target="_blank" class="text-gray-400 hover:text-white text-3xl transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank" class="text-gray-400 hover:text-white text-3xl transition"><i class="fab fa-facebook-square"></i></a>
+                    <a href="#" target="_blank" class="text-gray-400 hover:text-white text-3xl transition"><i class="fab fa-tiktok"></i></a>
+                </div>
             </div>
             <div class="border-t border-gray-700 pt-8 mt-8 text-sm text-gray-500">
                 <p>&copy; <span id="year"></span> Sneakers Washers. All Rights Reserved. Made with <i class="fas fa-heart text-red-500"></i> for students.</p>
@@ -277,7 +391,7 @@
             mobileMenu.classList.toggle('hidden');
         });
 
-        // Smooth Scrolling
+        // Smooth Scrolling & Mobile Menu Close
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -294,21 +408,19 @@
         document.getElementById('year').textContent = new Date().getFullYear();
 
         // --- Dummy order data ---
-        // In a real application, this would be stored in a database.
         const orders = {
             "SW1234": { status: "Order Placed", progress: 0, message: "We've received your order and will schedule collection soon!" },
             "SW5678": { status: "Collected", progress: 33, message: "Our driver has collected your sneakers. They're on their way to our cleaning facility!" },
             "SW9012": { status: "Cleaning", progress: 66, message: "Your kicks are getting the royal treatment! Our experts are hard at work." },
-            "SW3456": { status: "Delivered", progress: 100, message: "All clean! Your sneakers have been delivered. Enjoy your fresh kicks!" },
+            "SW3456": { status: "Delivered", progress: 100, message: "All clean! Your sneakers have been delivered. Enjoy your fresh kicks!" }
         };
 
         // --- Paystack Payment Logic ---
         const PAYSTACK_PUBLIC_KEY = "pk_test_5716f779ba66133c6412a4b842a1068b6c689120";
 
         function payWithPaystack(amount, planName) {
-            // A simple email prompt. For a real app, you'd have a proper form.
             const email = prompt("Please enter your email address to proceed with payment:", "student@email.com");
-            if (!email) { // If user cancels the prompt
+            if (!email) {
                 alert("Email is required to proceed with payment.");
                 return;
             }
@@ -316,32 +428,19 @@
             const handler = PaystackPop.setup({
                 key: PAYSTACK_PUBLIC_KEY,
                 email: email,
-                amount: amount * 100, // Amount in kobo/cents
+                amount: amount * 100,
                 currency: 'ZAR',
-                ref: 'SW' + Math.floor((Math.random() * 1000000000) + 1), // generates a pseudo-unique reference.
+                ref: 'SW' + Math.floor((Math.random() * 1000000000) + 1),
                 metadata: {
                     plan: planName,
                 },
                 callback: function(response) {
-                    // Payment was successful
                     const orderId = response.reference;
-                    // Add the new order to our dummy data so it can be tracked
                     orders[orderId] = { status: "Order Placed", progress: 0, message: "Payment successful! We've received your order and will schedule collection soon." };
-                    
-                    showInfoModal(
-                        'success',
-                        'Payment Successful!',
-                        'Thank you for your order. Please save your Order ID.',
-                        orderId
-                    );
+                    showInfoModal('success', 'Payment Successful!', 'Thank you for your order. Please save your Order ID.', orderId);
                 },
                 onClose: function() {
-                    // User closed the popup
-                    showInfoModal(
-                        'info',
-                        'Payment Cancelled',
-                        'You closed the payment window. You can try again anytime.'
-                    );
+                    showInfoModal('info', 'Payment Cancelled', 'You closed the payment window. You can try again anytime.');
                 }
             });
             handler.openIframe();
@@ -382,7 +481,6 @@
                  if (order.progress === 100) {
                     dots[3].classList.add('completed');
                 }
-
                 trackingResult.classList.remove('hidden');
             } else {
                 trackingStatusText.textContent = "Order Not Found";
@@ -391,6 +489,28 @@
                 dots.forEach(dot => dot.classList.remove('active', 'completed'));
                 trackingResult.classList.remove('hidden');
             }
+        });
+        
+        // --- FAQ Accordion Logic ---
+        const faqQuestions = document.querySelectorAll('.faq-question');
+        faqQuestions.forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+
+                if (answer.style.maxHeight) {
+                    answer.style.maxHeight = null;
+                    icon.classList.remove('rotate-180');
+                } else {
+                    // Close any open answers first
+                    document.querySelectorAll('.faq-answer').forEach(ans => {
+                        ans.style.maxHeight = null;
+                        ans.previousElementSibling.querySelector('i').classList.remove('rotate-180');
+                    });
+                    answer.style.maxHeight = answer.scrollHeight + "px";
+                    icon.classList.add('rotate-180');
+                }
+            });
         });
 
         // --- Generic Info/Success Modal ---
@@ -433,7 +553,6 @@
             }, 300);
         }
         
-        // Close modal if clicking on the background
         infoModal.addEventListener('click', function(event) {
             if (event.target === infoModal) {
                 closeInfoModal();
